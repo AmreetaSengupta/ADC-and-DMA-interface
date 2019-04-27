@@ -1,3 +1,8 @@
+/***********************************************************************************
+* @main.c
+* @This code implements ADC APIs.
+* @authors Amreeta Sengupta & Ridhi Shah
+************************************************************************************/
 #include "adc.h"
 
 void adc_init()
@@ -11,10 +16,11 @@ void adc_init()
 	ADC0->CFG1 |= ADC_CFG1_ADIV(3); //Selects the divide ratio
 	ADC0->CFG1 |= ADC_CFG1_ADLSMP(1); //Long sample time selected
 	ADC0->CFG1 |= ADC_CFG1_MODE(3); //single ended 16-bit conversion
-	ADC0->CFG1 |= ADC_CFG1_ADICLK(1); //Bus clock/2
+	ADC0->CFG1 |= ADC_CFG1_ADICLK(1); //Bus clock
 
 	ADC0->SC3 |= ADC_SC3_ADCO_MASK; //Enable continuous conversion
 	ADC0->SC3 |= ADC_SC3_AVGE_MASK; //Hardware average function enabled
+	//ADC0->SC3 |= ADC_SC3_AVGS(3) ;
 	ADC0->SC3 |= ADC_SC3_AVGS_MASK; //32 samples averaged
 
 	ADC0->SC1[0] &= ~ADC_SC1_ADCH_MASK;

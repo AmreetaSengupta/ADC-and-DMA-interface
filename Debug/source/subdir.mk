@@ -9,7 +9,6 @@ C_SRCS += \
 ../source/main.c \
 ../source/mtb.c \
 ../source/retarget_itm.c \
-../source/ring.c \
 ../source/uart.c 
 
 OBJS += \
@@ -18,7 +17,6 @@ OBJS += \
 ./source/main.o \
 ./source/mtb.o \
 ./source/retarget_itm.o \
-./source/ring.o \
 ./source/uart.o 
 
 C_DEPS += \
@@ -27,7 +25,6 @@ C_DEPS += \
 ./source/main.d \
 ./source/mtb.d \
 ./source/retarget_itm.d \
-./source/ring.d \
 ./source/uart.d 
 
 

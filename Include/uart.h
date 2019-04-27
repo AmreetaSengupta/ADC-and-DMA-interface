@@ -28,5 +28,6 @@ void rx_wait();
 void myputchar(char ch);
 void myputint(uint16_t num);
 void myputstr(char *s);
+void myputfloat(float a);
 char mygetchar();
 int get_num();

@@ -4,10 +4,9 @@
 * @authors Amreeta Sengupta & Ridhi Shah
 ************************************************************************************/
 #include "uart.h"
-#include "ring.h"
 
 extern int tx_flag;
-ring_t *tx_ptr, *rx_ptr;
+//ring_t *tx_ptr, *rx_ptr;
 extern char ele, read;
 
 void uartinit()
@@ -73,6 +72,20 @@ void myputint(uint16_t num)
 	char str[10];
 	sprintf(str,"%d",num);
 	myputstr(str);
+}
+
+void myputfloat(float a)
+{
+ uint8_t i=2;
+ myputint((uint16_t)a);
+ myputstr(".");
+ while(i!=0)
+ {
+	a = a - (uint16_t)a;
+	a *= 10;
+	myputchar(0x30 + (uint16_t)a);
+	i-=1;
+ }
 }
 
 int get_num()
