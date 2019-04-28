@@ -18,7 +18,11 @@ void log_calc(uint16_t val);
 uint32_t var, flag=0,led_flag=0, buff_add2=128;
 uint16_t arr[256], dma_count=0, dma_flag, curr_val, max_val=0, max_flag=0, adc_max=0;
 
-struct table value_table[] = {};
+struct table value_table[] = {
+								{0,0.00},{1,0.00},{2,-6.02},{3,-9.54},{4,-12.04},{5,-13.97},{6,-15.56},{7,-16.90},{8,-18.06},{9,-19.08},{10,-20},
+								{11,-20.82},{12,-21.58},{13,-22.27},{14,-22.9},{15,-23.52},{16,-24.08},{17,-24.60},{18,-25.10},{19,-25.50}
+
+							 };
 
 int main(void)
 {
@@ -43,10 +47,11 @@ int main(void)
 				{
 					max_val = max_val*0.9;
 				}
-				myputstr("MAX VAL = ");
+				myputstr("MAX VALUE = ");
 				myputint(max_val);
 				myputstr("\n\r");
-				//log_calc(max_val);
+				myputstr("LOG VALUE = ");
+				log_calc(max_val);
 				adc_max = 0;
 			}
 
@@ -55,9 +60,9 @@ int main(void)
 			{
 				adc_max = curr_val;
 			}
-			myputstr("ADC VAL = ");
+			myputstr("ADC VALUE = ");
 			myputint((uint16_t) curr_val);
-			myputstr(" DMA VAL = ");
+			myputstr(" DMA VALUE = ");
 			myputint((uint16_t) dma_count);
 			myputstr("\n\r");
 		}

@@ -8,15 +8,13 @@
 void adc_init()
 {
 
-/******************************4.3915 ms*****************************/
-
 	SIM->CLKDIV1 |= SIM_CLKDIV1_OUTDIV4(2); //Bus clock divide by 3
 	SIM->SCGC6 |= SIM_SCGC6_ADC0_MASK; //Enable the ADC Clock
 
 	ADC0->CFG1 |= ADC_CFG1_ADIV(3); //Selects the divide ratio
 	ADC0->CFG1 |= ADC_CFG1_ADLSMP(1); //Long sample time selected
 	ADC0->CFG1 |= ADC_CFG1_MODE(3); //single ended 16-bit conversion
-	ADC0->CFG1 |= ADC_CFG1_ADICLK(1); //Bus clock
+	ADC0->CFG1 |= ADC_CFG1_ADICLK(1); //Bus clock/2
 
 	ADC0->SC3 |= ADC_SC3_ADCO_MASK; //Enable continuous conversion
 	ADC0->SC3 |= ADC_SC3_AVGE_MASK; //Hardware average function enabled
