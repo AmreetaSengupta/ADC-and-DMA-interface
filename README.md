@@ -2,7 +2,7 @@
 
 Contains code for interface of ADC and DMA on FRDM KL25Z.
 
-The code contains:
+The code involves:
 
  • Implementation of 16-bit single ended mode ADC and its configuration to enable DMA request.
  
